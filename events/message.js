@@ -3,6 +3,7 @@ module.exports = {
     run: async (client, message) => {
         const prefix = '$';
         const config = require('../config.json')
+        if(message.channel.type === 'dm') return
         if (!message.content.startsWith(prefix)) return;
 
         if (!message.member) message.member = await message.guild.fetchMember(message);
